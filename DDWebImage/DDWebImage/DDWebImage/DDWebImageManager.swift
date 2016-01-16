@@ -26,28 +26,29 @@ class DDWebImageManager: NSObject {
     
 
     //单例
-//    class var sharedManager:LXLWebImageManager{
-//        struct Static {
+//    class var sharedManager1:DDWebImageManager{
+//        get{
+//            struct Static {
 //            static var onceToken: dispatch_once_t = 0
-//            static var instance: LXLWebImageManager? = nil
+//            static var instance: DDWebImageManager? = nil
+//            }
+//            dispatch_once(&Static.onceToken) { () -> Void in
+//                Static.instance = DDWebImageManager()
+//            }
+//            return Static.instance!
 //        }
-//        dispatch_once(&Static.onceToken) { () -> Void in
-//            Static.instance = LXLWebImageManager()
-//        }
-//        return Static.instance!
+//        
 //    }
     //单例其他写法
-//    static let instance = LXLWebImageManager()
-//    class func sharedManager() -> LXLWebImageManager{
-//        return instance
+    
+//    class var sharedManager: DDWebImageManager{
+//        struct Static {
+//            static let instance = DDWebImageManager()
+//        }
+//        return Static.instance
 //    }
-    class var sharedManager: DDWebImageManager{
-        struct Static {
-            static let instance = DDWebImageManager()
-        }
-        return Static.instance
-    }
-
+    //单行单例,目前class属性还不支持存储方法,故只能用static
+    static let sharedManager = DDWebImageManager()
     
     
     //添加内存警告通知
